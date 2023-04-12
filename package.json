@@ -1,6 +1,6 @@
 {
   "name": "vuetify-command-palette",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "./dist/vuetify-command-palette.umd.js",
   "module": "./dist/vuetify-command-palette.es.js",
   "exports": {
