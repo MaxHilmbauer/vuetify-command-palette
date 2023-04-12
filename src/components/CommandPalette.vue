@@ -1,5 +1,4 @@
 <template>
-  <h1>Hello World</h1>
   <Hotkeys :shortcuts="['K']" @triggered="this.visible = true" />
   <v-dialog v-model="visible">
     <v-row class="d-flex flex-column align-center">
