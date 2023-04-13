@@ -3,7 +3,7 @@ import "@mdi/font/css/materialdesignicons.css";
 </script>
 
 <template>
-  <Hotkeys :shortcuts="[shortcut]" @triggered="this.visible = true" />
+  <Hotkeys :shortcuts="shortcuts" @triggered="this.visible = true" />
   <v-dialog v-model="visible">
     <v-row class="d-flex flex-column align-center">
       <v-col cols="12" sm="12" md="8" lg="6" xl="4">
@@ -59,9 +59,9 @@ export default {
       type: String,
       default: "primary",
     },
-    shortcut: {
-      type: String,
-      default: "K",
+    shortcuts: {
+      type: Array,
+      required: true,
     },
     commands: {
       type: Array,

@@ -2,9 +2,7 @@
 import CommandPalette from "./components/CommandPalette.vue";
 </script>
 
-<template>
-  <CommandPalette :commands="commands" shortcut="L" />
-</template>
+<template><CommandPalette :commands="commands" :shortcuts="['U']" /></template>
 
 <script>
 export default {
