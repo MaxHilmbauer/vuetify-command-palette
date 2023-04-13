@@ -63,11 +63,12 @@ An command object looks like this:
 ```js
 {
   id: 0,
-  title: 'Test',
-  commandMethod: () => {
+  title: 'Test', // Displayed text
+  commandMethod: () => { // executed logic on click
     console.log('Test')
   }
 }
 ```
 
-
+### Accessing the CommandPalette
+To access the CommandPalette you need to press CTRL + K in the Browser and then the CommandPalette should open. In the near future it will be customizable which key will be used.
