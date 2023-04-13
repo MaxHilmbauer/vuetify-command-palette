@@ -1,10 +1,14 @@
+<script setup>
+import "@mdi/font/css/materialdesignicons.css";
+</script>
+
 <template>
-  <Hotkeys :shortcuts="['K']" @triggered="this.visible = true" />
+  <Hotkeys :shortcuts="[shortcut]" @triggered="this.visible = true" />
   <v-dialog v-model="visible">
     <v-row class="d-flex flex-column align-center">
       <v-col cols="12" sm="12" md="8" lg="6" xl="4">
         <v-card max-height="700">
-          <v-toolbar color="primary">
+          <v-toolbar :color="color">
             <v-container
               class="d-flex align-center justify-start text-h6 font-weight-bold"
             >
@@ -25,7 +29,7 @@
               <v-list-item
                 v-for="command in filteredCommands"
                 :key="command.id"
-                @click="command.function"
+                @click="command.commandMethod"
                 :active="command.id == selected"
                 :id="command.id"
                 border="1"
@@ -51,6 +55,14 @@ export default {
     Hotkeys,
   },
   props: {
+    color: {
+      type: String,
+      default: "primary",
+    },
+    shortcut: {
+      type: String,
+      default: "K",
+    },
     commands: {
       type: Array,
       required: false,

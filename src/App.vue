@@ -3,7 +3,7 @@ import CommandPalette from "./components/CommandPalette.vue";
 </script>
 
 <template>
-  <CommandPalette :commands="commands" />
+  <CommandPalette :commands="commands" shortcut="L" />
 </template>
 
 <script>
