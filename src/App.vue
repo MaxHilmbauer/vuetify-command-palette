@@ -2,7 +2,9 @@
 import CommandPalette from "./components/CommandPalette.vue";
 </script>
 
-<template><CommandPalette :commands="commands" :shortcuts="['U']" /></template>
+<template>
+  <CommandPalette :commands="commands" :shortcuts="['K']" />
+</template>
 
 <script>
 export default {
@@ -11,6 +13,23 @@ export default {
       {
         id: 0,
         title: "Create Record",
+        icon: "mdi-plus",
+        commandLogic: () => {
+          console.log("Hello");
+        },
+      },
+      {
+        id: 1,
+        title: "Create Record",
+        icon: "mdi-plus",
+        commandLogic: () => {
+          console.log("Hello");
+        },
+      },
+      {
+        id: 2,
+        title: "Create Record",
+        icon: "mdi-plus",
         commandLogic: () => {
           console.log("Hello");
         },
@@ -19,5 +38,3 @@ export default {
   }),
 };
 </script>
-
-<style></style>
