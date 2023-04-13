@@ -3,9 +3,6 @@
 The `vuetify-command-palette` is a custom design component for vuetify adding a command palette to your application.
 
 ## Installation
-
-Install package with npm or yarn. Next to the `vuetify-command-palette` you need to install `Vuetify`, because the commmand palette relies on Vuetify.
-
 ```bash
 npm install vuetify-command-palette@^1.0.3
 npm install vuetify@^3.1.13
@@ -16,7 +13,7 @@ yarn add vuetify@^3.1.13
 
 ## Usage
 
-### Using CommandPalette as global available component
+### Importing CommandPalette as global component
 ```js
 // main.js
 
@@ -47,7 +44,7 @@ app.use(CommandPalette)
 app.mount('#app')
 ```
 
-### Using CommandPalette locally in a component
+### Importing CommandPalette locally
 ```vue
 // Component.vue
 
