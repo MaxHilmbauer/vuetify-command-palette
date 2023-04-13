@@ -6,12 +6,10 @@ The `vuetify-command-palette` is a custom design component for vuetify adding a 
 
 Install package with npm or yarn. Next to the `vuetify-command-palette` you need to install `Vuetify`, because the commmand palette relies on Vuetify.
 
-```
+```bash
 npm install vuetify-command-palette@^1.0.3
 npm install vuetify@^3.1.13
-```
-or
-```
+# or
 yarn add vuetify-command-palette@^1.0.3
 yarn add vuetify@^3.1.13
 ```
