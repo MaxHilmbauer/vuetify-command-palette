@@ -48,7 +48,7 @@ app.use(CommandPalette)
 app.mount('#app')
 ```
 
-### Using CommandPalette local in component
+### Using CommandPalette locally in a component
 ```vue
 // Component.vue
 
@@ -56,3 +56,18 @@ app.mount('#app')
   import { CommandPalette } from 'vuetify-command-palette'
 </script>
 ```
+
+### Props
+The CommandPalette Component has one required prop `commands` that expects an array of command objects you want to display in the command palette.
+An command object looks like this:
+```js
+{
+  id: 0,
+  title: 'Test',
+  commandMethod: () => {
+    console.log('Test')
+  }
+}
+```
+
+
