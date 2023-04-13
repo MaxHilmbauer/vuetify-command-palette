@@ -1,4 +1,5 @@
 # Vuetify command palette
+![vuetify-command-palette package version](https://img.shields.io/npm/v/vuetify-command-palette.svg?colorB=green) \
 The `vuetify-command-palette` is a custom design component for vuetify adding a command palette to your application.
 
 ## Installation
