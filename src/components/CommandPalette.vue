@@ -21,16 +21,38 @@ import "@mdi/font/css/materialdesignicons.css";
             <v-divider></v-divider>
             <v-list class="overflow-y-auto pb-7" max-height="300">
               <v-list-item
+                v-if="filteredCommands.length == 0"
+                active
+                :active-class="
+                  'bg-' +
+                  color +
+                  ' ' +
+                  (blackText == true ? 'text-black' : 'text-white')
+                "
+                class="text-center font-weight-bold"
+                rounded="lg"
+                border="1"
+              >
+                Nothing found for current search
+              </v-list-item>
+              <v-list-item
                 v-for="command in filteredCommands"
-                :key="command.id"
+                :key="command"
                 @click="command.commandMethod"
-                :id="command.id"
+                :id="filteredCommands.indexOf(command)"
                 :prepend-icon="command.icon"
                 :append-icon="
-                  command.id == selected ? 'mdi-arrow-left-bottom' : ''
+                  filteredCommands.indexOf(command) == selected
+                    ? 'mdi-arrow-left-bottom'
+                    : ''
                 "
-                :active="command.id == selected"
-                :active-class="'bg-' + color + ' ' + 'text-white'"
+                :active="filteredCommands.indexOf(command) == selected"
+                :active-class="
+                  'bg-' +
+                  color +
+                  ' ' +
+                  (blackText == true ? 'text-black' : 'text-white')
+                "
                 rounded="lg"
                 border="1"
                 >{{ command.title }}</v-list-item
@@ -58,6 +80,10 @@ export default {
     color: {
       type: String,
       default: "primary",
+    },
+    blackText: {
+      type: Boolean,
+      default: false,
     },
     shortcuts: {
       type: Array,
@@ -128,10 +154,17 @@ export default {
   computed: {
     filteredCommands() {
       if (this.commandFilterText == "") {
+        this.selected = 0;
         return [];
       }
       return this.commands.filter((command) => {
         if (command.title.includes(this.commandFilterText)) {
+          return true;
+        }
+
+        if (
+          command.title.toLowerCase() == this.commandFilterText.toLowerCase()
+        ) {
           return true;
         }
         return false;

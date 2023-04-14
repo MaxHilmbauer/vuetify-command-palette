@@ -1,40 +1,40 @@
 <script setup>
 import CommandPalette from "./components/CommandPalette.vue";
+
+const commands = [
+  {
+    title: "Dashboard",
+    icon: "mdi-home",
+    commandLogic: () => {
+      console.log("Hello Dashboard");
+    },
+  },
+  {
+    title: "Records",
+    icon: "mdi-record",
+    commandLogic: () => {
+      console.log("Hello Records");
+    },
+  },
+  {
+    title: "Settings",
+    icon: "mdi-cog",
+    commandLogic: () => {
+      console.log("Hello Settings");
+    },
+  },
+];
 </script>
 
 <template>
-  <CommandPalette :commands="commands" :shortcuts="['K']" color="secondary" />
+  <CommandPalette
+    :commands="commands"
+    :shortcuts="['K']"
+    color="secondary"
+    blackText
+  />
 </template>
 
 <script>
-export default {
-  data: () => ({
-    commands: [
-      {
-        id: 0,
-        title: "Create Record",
-        icon: "mdi-plus",
-        commandLogic: () => {
-          console.log("Hello");
-        },
-      },
-      {
-        id: 1,
-        title: "Create Record",
-        icon: "mdi-plus",
-        commandLogic: () => {
-          console.log("Hello");
-        },
-      },
-      {
-        id: 2,
-        title: "Create Record",
-        icon: "mdi-plus",
-        commandLogic: () => {
-          console.log("Hello");
-        },
-      },
-    ],
-  }),
-};
+export default {};
 </script>
