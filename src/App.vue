@@ -3,7 +3,7 @@ import CommandPalette from "./components/CommandPalette.vue";
 </script>
 
 <template>
-  <CommandPalette :commands="commands" :shortcuts="['K']" />
+  <CommandPalette :commands="commands" :shortcuts="['K']" color="secondary" />
 </template>
 
 <script>

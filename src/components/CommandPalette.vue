@@ -10,7 +10,7 @@ import "@mdi/font/css/materialdesignicons.css";
         <v-card max-height="700" rounded="lg" border>
           <v-card-text>
             <v-text-field
-              color="primary"
+              :color="color"
               prepend-inner-icon="mdi-magnify"
               v-model="commandFilterText"
               placeholder="Search Command"
@@ -18,6 +18,7 @@ import "@mdi/font/css/materialdesignicons.css";
               variant="outlined"
             >
             </v-text-field>
+            <v-divider></v-divider>
             <v-list class="overflow-y-auto pb-7" max-height="300">
               <v-list-item
                 v-for="command in filteredCommands"
@@ -29,7 +30,7 @@ import "@mdi/font/css/materialdesignicons.css";
                   command.id == selected ? 'mdi-arrow-left-bottom' : ''
                 "
                 :active="command.id == selected"
-                active-class="bg-primary text-white"
+                :active-class="'bg-' + color + ' ' + 'text-white'"
                 rounded="lg"
                 border="1"
                 >{{ command.title }}</v-list-item
@@ -106,6 +107,7 @@ export default {
         if (v) {
           if (this.filteredCommands[this.selected] != undefined) {
             this.filteredCommands[this.selected].commandLogic();
+            this.visible = ref(false);
           }
         }
       }
