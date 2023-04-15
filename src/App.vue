@@ -30,8 +30,10 @@ const commands = [
   <CommandPalette
     :commands="commands"
     :shortcuts="['K']"
-    color="secondary"
+    color="primary"
+    noDataText="Nothing found for this search"
     blackText
+    displayAll
   />
 </template>
 

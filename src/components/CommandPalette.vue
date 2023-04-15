@@ -33,7 +33,7 @@ import "@mdi/font/css/materialdesignicons.css";
                 rounded="lg"
                 border="1"
               >
-                Nothing found for current search
+                {{ noDataText }}
               </v-list-item>
               <v-list-item
                 v-for="command in filteredCommands"
@@ -94,6 +94,16 @@ export default {
       required: false,
       default: [],
     },
+    displayAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    noDataText: {
+      type: String,
+      required: false,
+      default: "Nothing found",
+    },
   },
   data: () => ({
     commandFilterText: "",
@@ -153,17 +163,22 @@ export default {
   },
   computed: {
     filteredCommands() {
+      this.selected = 0;
       if (this.commandFilterText == "") {
-        this.selected = 0;
+        if (this.displayAll) {
+          return this.commands;
+        }
         return [];
       }
       return this.commands.filter((command) => {
-        if (command.title.includes(this.commandFilterText)) {
+        /*if (command.title.includes(this.commandFilterText)) {
           return true;
-        }
+        }*/
 
         if (
-          command.title.toLowerCase() == this.commandFilterText.toLowerCase()
+          command.title
+            .toLowerCase()
+            .includes(this.commandFilterText.toLowerCase())
         ) {
           return true;
         }
