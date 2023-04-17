@@ -77,6 +77,14 @@ export default {
     Hotkeys,
   },
   props: {
+    commands: {
+      type: Array,
+      default: [],
+    },
+    shortcuts: {
+      type: Array,
+      default: ["K"],
+    },
     color: {
       type: String,
       default: "primary",
@@ -85,23 +93,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    shortcuts: {
-      type: Array,
-      required: true,
-    },
-    commands: {
-      type: Array,
-      required: false,
-      default: [],
-    },
     displayAll: {
       type: Boolean,
-      required: false,
       default: false,
     },
     noDataText: {
       type: String,
-      required: false,
       default: "Nothing found",
     },
   },

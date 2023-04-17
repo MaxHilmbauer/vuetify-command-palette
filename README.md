@@ -25,8 +25,8 @@ app.mount('#app')
 ```
 
 ### Importing CommandPalette locally
-```vue
-// Component.vue
+```html
+<!-- Component.vue -->
 
 <script setup>
   import { CommandPalette } from 'vuetify-command-palette'
@@ -34,11 +34,11 @@ app.mount('#app')
 ```
 
 ### Props
-The CommandPalette Component has one required prop `commands` that expects an array of command objects you want to display in the command palette.
-An command object looks like this:
+#### commands
+The `commands` prop hands the commands to the component and displays them.
+The prop expects an Array of command objects. A command object looks like this:
 ```js
-{
-  id: 0,
+const command = {
   title: 'Test', // Displayed text
   icon: 'mdi-plus', // Icon of Command
   commandMethod: () => { // executed logic on click
@@ -46,6 +46,20 @@ An command object looks like this:
   }
 }
 ```
+#### shortcuts
+The `shortcuts` prop expects an array of characters, that includes the letters you can press in combination with `CTRL` to open the command palette. By default the shortcut is `CTRL+K`. An example of an shortcuts array is this:
+```js
+const shortcuts = ['K', 'P']
+```
 
-### Accessing the CommandPalette
-To access the CommandPalette you need to press CTRL + K in the Browser and then the CommandPalette should open. In the near future it will be customizable which key will be used.
+#### color
+The `color` prop expects whether a hex color or a vuetify application color as a string. By default the `primary` color is used.
+
+#### blackText
+The `blackText` prop is a boolean prop. If `true` the Text will be displayed black and not white
+
+#### displayAll
+The `displayAll` prop is a boolean prop. If `true` all commands will be displayed if the array is not filtered
+
+#### noDataText
+The `noDataText` prop expects a string, in which the text, that is displayed when no command matches the search string, is defined. If you do not define the text the default text is: `Nothing found`
